@@ -7,7 +7,7 @@ class Student
 {
 	public:
 		Student();
-		Student(string id, string fName, string lName, string email, string, int initialAge, vector<int> numDays, string degree);
+		Student(string id, string fName, string lName, string email, string, int age, vector<int> numDays, string degree);
 
 	private:
 		string studentID;

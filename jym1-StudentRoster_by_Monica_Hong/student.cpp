@@ -1,5 +1,11 @@
 #include "student.h"
 
+Student::Student() {}
+
+Student::Student(string id, string fName, string lName, string email, string, int age, vector<int> numDays, string degree)
+{
+
+}
 
 //[] D.  For the Student class, do the following:
 //    [] 1.  Create the class Student in the files student.h and student.cpp, which includes each of the following variables:
