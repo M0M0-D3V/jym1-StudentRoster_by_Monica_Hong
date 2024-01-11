@@ -7,7 +7,30 @@ class Student
 {
 	public:
 		Student();
-		Student(string id, string fName, string lName, string email, string, int age, vector<int> numDays, string degree);
+		Student(
+			string id,
+			string fName,
+			string lName,
+			string email,
+			unsigned int age,
+			vector<int> numDays,
+			string degree
+		);
+		string GetStudentID() const;
+		string GetFirstName() const;
+		string GetLastName() const;
+		string GetEmail() const;
+		unsigned int GetAge() const;
+		vector<int> GetNumDaysToComplete() const;
+		string GetDegreeProgram() const;
+		void SetStudentID(string id);
+		void SetFirstName(string fName);
+		void SetLastName(string lName);
+		void SetEmail(string email);
+		void SetAge(unsigned int age);
+		void SetNumDaysToComplete(vector<int> numDays);
+		void SetDegreeProgram(string degree);
+		string Print() const;
 
 	private:
 		string studentID;
@@ -28,9 +51,9 @@ class Student
 //        •  age
 //        •  array of number of days to complete each course
 //        •  degree program
-//    [] 2.  Create each of the following functions in the Student class:
-//        [] a.  an accessor (i.e., getter) for each instance variable from part D1
-//        [] b.  a mutator (i.e., setter) for each instance variable from part D1
-//        [] c.  All external access and changes to any instance variables of the Student class must be done using accessor and mutator functions.
-//        [] d.  constructor using all of the input parameters provided in the table
-//        [] e.  print() to print specific student data
+//    [x] 2.  Create each of the following functions in the Student class:
+//        [x] a.  an accessor (i.e., getter) for each instance variable from part D1
+//        [x] b.  a mutator (i.e., setter) for each instance variable from part D1
+//        [x] c.  All external access and changes to any instance variables of the Student class must be done using accessor and mutator functions.
+//        [x] d.  constructor using all of the input parameters provided in the table
+//        [x] e.  print() to print specific student data
