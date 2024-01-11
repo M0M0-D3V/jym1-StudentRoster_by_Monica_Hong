@@ -1,7 +1,15 @@
 #include <iostream>
 #include "student.h"
 
-Student::Student() {}
+Student::Student()
+{
+	studentID = "00";
+	firstName = "Test";
+	lastName = "Mc Testerson";
+	emailAddress = "newkid@wgu.edu";
+	age = 0;
+	degreeProgram = "LIFE";
+}
 
 Student::Student(string id, string fName, string lName, string email, unsigned int age, vector<int> numDays, string degree)
 {
@@ -89,9 +97,15 @@ void Student::SetDegreeProgram(string degree)
 {
 	degreeProgram = degree;
 }
-string Student::Print() const
+void Student::Print() const
 {
-	cout << "Printing Student Details..." << endl;
+	cout << "Student ID      : " << studentID << endl;
+	cout << "First Name      : " << firstName << endl;
+	cout << "Last Name       : " << lastName << endl;
+	cout << "Email Address   : " << emailAddress << endl;
+	cout << "Age             : " << age << endl;
+	cout << "Days To Complete: " << numDaysToComplete.at(0) << ", " << numDaysToComplete.at(1) << ", and " << numDaysToComplete.at(2) << endl;
+	cout << "Degree Program  : " << degreeProgram << endl;
 }
 
 //[x] D.  For the Student class, do the following:

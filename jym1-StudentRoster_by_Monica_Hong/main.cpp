@@ -7,8 +7,9 @@ You may not include third-party libraries. Your submission should include one zi
 ***********************************************/
 
 #include <iostream>
-
 using namespace std;
+
+#include "student.h";
 
 int main()
 {
@@ -24,9 +25,12 @@ int main()
 
 //[] F.  Demonstrate the program’s required functionality by adding a main() function in main.cpp, which will contain the required function calls to achieve the following results:
 //    [] 1.  Print out to the screen, via your application, the course title, the programming language used, your WGU student ID, and your name.
-    cout << "Hello World!\n";
+    cout << "Course Title  : C867 Scripting & Programming - Applications" << endl;
+    cout << "Language Used : C++" << endl;
+    cout << "WGU Student ID: blah blah" << endl;
+    cout << "Student Name  : Monica Hong" << endl;
 
-//    [x] 2.  Create an instance of the Roster class called classRoster.
+//    [] 2.  Create an instance of the Roster class called classRoster.
 //     Roster classRoster;
 //    [] 3.  Add each student to classRoster.
 //    [] 4.  Convert the following pseudo code to complete the rest of the  main() function:
@@ -46,6 +50,15 @@ int main()
 //        //expected: the above line should print a message saying such a student with this ID was not found.
 //        
 //    [] 5.  Implement the destructor to release the memory that was allocated dynamically in Roster.
+
+
+
+
+// TESTS
+    Student firstKid;
+    firstKid.Print();
+    //Student testStudent("A5", "Monica", "Hong", "mhong21@wgu.edu", 38,
+ //5, 18, 14, "SOFTWARE");
     return 0;
 }
 
@@ -60,22 +73,6 @@ int main()
 //[] C.  Define an enumerated data type DegreeProgram for the degree programs containing the data type values SECURITY, NETWORK, and SOFTWARE.
 //
 //    Note: This information should be included in the degree.h file.
-//
-//[] D.  For the Student class, do the following:
-//    [] 1.  Create the class Student in the files student.h and student.cpp, which includes each of the following variables:
-//        •  student ID
-//        •  first name
-//        •  last name
-//        •  email address
-//        •  age
-//        •  array of number of days to complete each course
-//        •  degree program
-//    [] 2.  Create each of the following functions in the Student class:
-//        [] a.  an accessor (i.e., getter) for each instance variable from part D1
-//        [] b.  a mutator (i.e., setter) for each instance variable from part D1
-//        [] c.  All external access and changes to any instance variables of the Student class must be done using accessor and mutator functions.
-//        [] d.  constructor using all of the input parameters provided in the table
-//        [] e.  print() to print specific student data
 //
 //[] E.  Create a Roster class (roster.cpp) by doing the following:
 //    [] 1.  Create an array of pointers, classRosterArray, to hold the data provided in the “studentData Table.”

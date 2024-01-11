@@ -30,7 +30,7 @@ class Student
 		void SetAge(unsigned int age);
 		void SetNumDaysToComplete(vector<int> numDays);
 		void SetDegreeProgram(string degree);
-		string Print() const;
+		void Print() const;
 
 	private:
 		string studentID;
