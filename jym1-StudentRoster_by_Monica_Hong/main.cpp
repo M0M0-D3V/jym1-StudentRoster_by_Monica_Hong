@@ -57,8 +57,10 @@ int main()
 // TESTS
     Student firstKid;
     firstKid.Print();
-    //Student testStudent("A5", "Monica", "Hong", "mhong21@wgu.edu", 38,
- //5, 18, 14, "SOFTWARE");
+
+    Student testStudent("A5", "Monica", "Hong", "mhong21@wgu.edu", 38, 5, 18, 14, "SOFTWARE");
+    testStudent.Print();
+    cout << testStudent.GetFirstName() << endl;
     return 0;
 }
 

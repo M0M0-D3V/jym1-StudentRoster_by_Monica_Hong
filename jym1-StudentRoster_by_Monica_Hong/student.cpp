@@ -11,7 +11,7 @@ Student::Student()
 	degreeProgram = "LIFE";
 }
 
-Student::Student(string id, string fName, string lName, string email, unsigned int age, vector<int> numDays, string degree)
+Student::Student(string id, string fName, string lName, string email, unsigned int age, unsigned int day1, unsigned int day2, unsigned int day3, string degree)
 {
 	studentID = id;
 	firstName = fName;
@@ -20,9 +20,9 @@ Student::Student(string id, string fName, string lName, string email, unsigned i
 	this->age = age;
 	
 	numDaysToComplete.resize(3);
-	numDaysToComplete.at(0) = numDays.at(0);
-	numDaysToComplete.at(1) = numDays.at(1);
-	numDaysToComplete.at(2) = numDays.at(2);
+	numDaysToComplete.at(0) = day1;
+	numDaysToComplete.at(1) = day2;
+	numDaysToComplete.at(2) = day3;
 
 	degreeProgram = degree;
 }
@@ -86,12 +86,12 @@ void Student::SetAge(unsigned int age)
 	this->age = age;
 
 }
-void Student::SetNumDaysToComplete(vector<int> numDays)
+void Student::SetNumDaysToComplete(unsigned int day1, unsigned int day2, unsigned int day3)
 {
 	numDaysToComplete.resize(3);
-	numDaysToComplete.at(0) = numDays.at(0);
-	numDaysToComplete.at(1) = numDays.at(1);
-	numDaysToComplete.at(2) = numDays.at(2);
+	numDaysToComplete.at(0) = day1;
+	numDaysToComplete.at(1) = day2;
+	numDaysToComplete.at(2) = day3;
 }
 void Student::SetDegreeProgram(string degree)
 {
@@ -104,7 +104,12 @@ void Student::Print() const
 	cout << "Last Name       : " << lastName << endl;
 	cout << "Email Address   : " << emailAddress << endl;
 	cout << "Age             : " << age << endl;
-	cout << "Days To Complete: " << numDaysToComplete.at(0) << ", " << numDaysToComplete.at(1) << ", and " << numDaysToComplete.at(2) << endl;
+	cout << "Days to Complete: ";
+	for (unsigned int i : numDaysToComplete)
+	{
+		cout << i << " ";
+	}
+	cout << endl;
 	cout << "Degree Program  : " << degreeProgram << endl;
 }
 

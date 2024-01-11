@@ -13,7 +13,9 @@ class Student
 			string lName,
 			string email,
 			unsigned int age,
-			vector<int> numDays,
+			unsigned int day1,
+			unsigned int day2,
+			unsigned int day3,
 			string degree
 		);
 		string GetStudentID() const;
@@ -28,7 +30,7 @@ class Student
 		void SetLastName(string lName);
 		void SetEmail(string email);
 		void SetAge(unsigned int age);
-		void SetNumDaysToComplete(vector<int> numDays);
+		void SetNumDaysToComplete(unsigned int day1, unsigned int day2, unsigned int day3);
 		void SetDegreeProgram(string degree);
 		void Print() const;
 
