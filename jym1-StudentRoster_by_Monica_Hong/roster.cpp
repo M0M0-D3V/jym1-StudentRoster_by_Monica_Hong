@@ -1,4 +1,17 @@
+#include <iostream>
+using namespace std;
+
 #include "roster.h"
+
+Roster::Roster()
+{
+
+}
+
+void Roster::PrintAll() const
+{
+
+}
 
 //[] E.  Create a Roster class (roster.cpp) by doing the following:
 //    [] 1.  Create an array of pointers, classRosterArray, to hold the data provided in the “studentData Table.”
