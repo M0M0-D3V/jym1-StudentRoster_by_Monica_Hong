@@ -6,8 +6,8 @@ class Roster
 		void Add();
 		void Remove();
 		void PrintAll() const;
-		void printAverageDaysInCourse() const;
-		void printInvalidEmails() const;
+		void PrintAverageDaysInCourse() const;
+		void PrintInvalidEmails() const;
 
 	private:
 

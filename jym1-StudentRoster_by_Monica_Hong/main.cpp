@@ -10,6 +10,7 @@ You may not include third-party libraries. Your submission should include one zi
 using namespace std;
 
 #include "student.h";
+#include "degree.h";
 
 int main()
 {
@@ -58,7 +59,7 @@ int main()
     Student firstKid;
     firstKid.Print();
 
-    Student testStudent("A5", "Monica", "Hong", "mhong21@wgu.edu", 38, 5, 18, 14, "SOFTWARE");
+    Student testStudent("A5", "Monica", "Hong", "mhong21@wgu.edu", 38, 5, 18, 14, DegreeProgram::SOFTWARE);
     testStudent.Print();
     cout << testStudent.GetFirstName() << endl;
     return 0;

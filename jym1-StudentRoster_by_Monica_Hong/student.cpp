@@ -1,5 +1,6 @@
 #include <iostream>
 #include "student.h"
+#include "degree.h"
 
 Student::Student()
 {
@@ -8,10 +9,10 @@ Student::Student()
 	lastName = "Mc Testerson";
 	emailAddress = "newkid@wgu.edu";
 	age = 0;
-	degreeProgram = "LIFE";
+	degreeProgram = DegreeProgram::SOFTWARE;
 }
 
-Student::Student(string id, string fName, string lName, string email, unsigned int age, unsigned int day1, unsigned int day2, unsigned int day3, string degree)
+Student::Student(string id, string fName, string lName, string email, unsigned int age, unsigned int day1, unsigned int day2, unsigned int day3, DegreeProgram degree)
 {
 	studentID = id;
 	firstName = fName;
@@ -57,7 +58,7 @@ vector<int> Student::GetNumDaysToComplete() const
 	return numDaysToComplete;
 }
 
-string Student::GetDegreeProgram() const
+DegreeProgram Student::GetDegreeProgram() const
 {
 	return degreeProgram;
 }
@@ -93,7 +94,7 @@ void Student::SetNumDaysToComplete(unsigned int day1, unsigned int day2, unsigne
 	numDaysToComplete.at(1) = day2;
 	numDaysToComplete.at(2) = day3;
 }
-void Student::SetDegreeProgram(string degree)
+void Student::SetDegreeProgram(DegreeProgram degree)
 {
 	degreeProgram = degree;
 }

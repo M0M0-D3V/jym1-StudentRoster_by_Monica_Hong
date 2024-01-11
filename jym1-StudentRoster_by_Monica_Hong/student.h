@@ -16,7 +16,7 @@ class Student
 			unsigned int day1,
 			unsigned int day2,
 			unsigned int day3,
-			string degree
+			DegreeProgram degree
 		);
 		string GetStudentID() const;
 		string GetFirstName() const;
@@ -24,14 +24,14 @@ class Student
 		string GetEmail() const;
 		unsigned int GetAge() const;
 		vector<int> GetNumDaysToComplete() const;
-		string GetDegreeProgram() const;
+		DegreeProgram GetDegreeProgram() const;
 		void SetStudentID(string id);
 		void SetFirstName(string fName);
 		void SetLastName(string lName);
 		void SetEmail(string email);
 		void SetAge(unsigned int age);
 		void SetNumDaysToComplete(unsigned int day1, unsigned int day2, unsigned int day3);
-		void SetDegreeProgram(string degree);
+		void SetDegreeProgram(DegreeProgram degree);
 		void Print() const;
 
 	private:
@@ -41,7 +41,7 @@ class Student
 		string emailAddress;
 		unsigned int age;
 		vector<int> numDaysToComplete;	// chose to do vector instead of array for it's safety features and better practice
-		string degreeProgram;
+		DegreeProgram degreeProgram;
 };
 
 //[] D.  For the Student class, do the following:

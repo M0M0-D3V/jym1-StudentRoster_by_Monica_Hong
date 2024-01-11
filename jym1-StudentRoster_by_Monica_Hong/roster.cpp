@@ -8,7 +8,27 @@ Roster::Roster()
 
 }
 
+void Roster::Add()
+{
+
+}
+
+void Roster::Remove()
+{
+
+}
+
 void Roster::PrintAll() const
+{
+
+}
+
+void Roster::PrintAverageDaysInCourse() const
+{
+
+}
+
+void Roster::PrintInvalidEmails() const
 {
 
 }
