@@ -18,6 +18,7 @@ class Student
 			unsigned int day3,
 			DegreeProgram degree
 		);
+		~Student();
 		string GetStudentID() const;
 		string GetFirstName() const;
 		string GetLastName() const;

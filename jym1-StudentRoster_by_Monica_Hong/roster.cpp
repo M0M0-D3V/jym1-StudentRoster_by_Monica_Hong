@@ -8,12 +8,19 @@ Roster::Roster()
 
 }
 
-void Roster::Add()
+Roster::~Roster()
 {
 
 }
 
-void Roster::Remove()
+void Roster::Add(string id, string fName, string lName, string email, int age, int day1, int day2, int day3, DegreeProgram degree)
+{
+	Student newStudent(id, fName, lName, email, age, day1, day2, day3, degree);
+	ClassRosterArray[studentCount] = newStudent;
+	studentCount++;
+}
+
+void Roster::Remove(string id)
 {
 
 }
@@ -23,12 +30,17 @@ void Roster::PrintAll() const
 
 }
 
-void Roster::PrintAverageDaysInCourse() const
+void Roster::PrintAverageDaysInCourse(string id) const
 {
 
 }
 
 void Roster::PrintInvalidEmails() const
+{
+
+}
+
+void Roster::PrintByDegreeProgram(DegreeProgram degree) const
 {
 
 }

@@ -28,6 +28,11 @@ Student::Student(string id, string fName, string lName, string email, unsigned i
 	degreeProgram = degree;
 }
 
+Student::~Student()
+{
+
+}
+
 string Student::GetStudentID() const
 {
 	return studentID;

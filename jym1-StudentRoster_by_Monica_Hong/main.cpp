@@ -11,6 +11,7 @@ using namespace std;
 
 #include "student.h";
 #include "degree.h";
+#include "roster.h";
 
 int main()
 {
@@ -32,7 +33,7 @@ int main()
     cout << "Student Name  : Monica Hong" << endl;
 
 //    [] 2.  Create an instance of the Roster class called classRoster.
-//     Roster classRoster;
+     Roster classRoster;
 //    [] 3.  Add each student to classRoster.
 //    [] 4.  Convert the following pseudo code to complete the rest of the  main() function:
 //        classRoster.printAll();
@@ -65,18 +66,6 @@ int main()
     return 0;
 }
 
-//[x] B.  Create a C++ project in your integrated development environment (IDE) with the following files:
-//    [x] •  degree.h
-//    [x] •  student.h and student.cpp
-//    [x] •  roster.h and roster.cpp
-//    [x] •  main.cpp
-//
-//    Note: There must be a total of six source code files.
-//
-//[] C.  Define an enumerated data type DegreeProgram for the degree programs containing the data type values SECURITY, NETWORK, and SOFTWARE.
-//
-//    Note: This information should be included in the degree.h file.
-//
 //[] E.  Create a Roster class (roster.cpp) by doing the following:
 //    [] 1.  Create an array of pointers, classRosterArray, to hold the data provided in the “studentData Table.”
 //    
@@ -85,7 +74,7 @@ int main()
 //        [] b.  Add each student object to classRosterArray.
 //    
 //    [] 3.  Define the following functions
-//        [] a.  public void add(string studentID, string firstName, string lastName, string emailAddress, int age, int daysInCourse1, int daysInCourse2, int daysInCourse3, DegreeProgram degreeprogram)  that sets the instance                   variables from part D1 and updates the roster.
+//        [x] a.  public void add(string studentID, string firstName, string lastName, string emailAddress, int age, int daysInCourse1, int daysInCourse2, int daysInCourse3, DegreeProgram degreeprogram)  that sets the instance variables from part D1 and updates the roster.
 //        [] b.  public void remove(string studentID)  that removes students from the roster by student ID. If the student ID does not exist, the function prints an error message indicating that the student was not found.
 //        [] c. public void printAll() that prints a complete tab-separated list of student data in the provided format: A1 [tab] First Name: John [tab] Last Name: Smith [tab] Age: 20 [tab]daysInCourse: {35, 40, 55} Degree                      Program: Security. The printAll() function should loop through all the students in classRosterArray and call the print() function for each student.
 //        [] d.  public void printAverageDaysInCourse(string studentID)  that correctly prints a student’s average number of days in the three courses. The student is identified by the studentID parameter.
