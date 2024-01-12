@@ -105,18 +105,32 @@ void Student::SetDegreeProgram(DegreeProgram degree)
 }
 void Student::Print() const
 {
-	cout << "Student ID      : " << studentID << endl;
-	cout << "First Name      : " << firstName << endl;
-	cout << "Last Name       : " << lastName << endl;
-	cout << "Email Address   : " << emailAddress << endl;
-	cout << "Age             : " << age << endl;
-	cout << "Days to Complete: ";
+	cout << studentID << '\t';
+	cout << firstName << '\t';
+	cout << lastName << '\t';
+	cout << emailAddress << '\t';
+	cout << age << '\t';
 	for (unsigned int i : numDaysToComplete)
 	{
 		cout << i << " ";
 	}
+	cout <<'\t';
+	switch (degreeProgram)
+	{
+	case DegreeProgram::SECURITY:
+		cout << "SECURITY";
+		break;
+	case DegreeProgram::NETWORK:
+		cout << "NETWORK";
+		break;
+	case DegreeProgram::SOFTWARE:
+		cout << "SOFTWARE";
+		break;
+	case DegreeProgram::NONE:
+		cout << "NONE";
+		break;
+	}
 	cout << endl;
-	cout << "Degree Program  : " << degreeProgram << endl;
 }
 
 //[x] D.  For the Student class, do the following:
