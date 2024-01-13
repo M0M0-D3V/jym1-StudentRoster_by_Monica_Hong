@@ -1,5 +1,6 @@
 #include <iostream>
 #include <sstream>
+#include <regex>
 using namespace std;
 
 #include "roster.h"
@@ -8,10 +9,13 @@ Roster::Roster(const string students[])
 {
 	try
 	{
+//		[x] 1.  Create an array of pointers, classRosterArray, to hold the data provided in the “studentData Table.”
 		studentCount = 5;
 		ClassRosterArray = new Student*[studentCount];
 
-		//E2a. Parse string segments
+//		[x] 2.  Create a student object for each student in the data table and populate classRosterArray.
+//			[x] a.  Parse each set of data identified in the “studentData Table.”
+//			[x] b.  Add each student object to classRosterArray.
 		for (int i = 0; i < studentCount; i++)
 		{
 			// Use vector of string to save info bits for each student
@@ -64,11 +68,28 @@ Roster::Roster(const string students[])
 	}
 }
 
+//[x] 5.  Implement the destructor to release the memory that was allocated dynamically in Roster.
 Roster::~Roster()
 {
 	delete[] ClassRosterArray;
 }
 
+Student** Roster::GetClassRosterArray()
+{
+	return ClassRosterArray;
+}
+
+int Roster::GetStudentCount() const
+{
+	return studentCount;
+}
+
+void Roster::SetStudentCount(int number)
+{
+	studentCount = number;
+}
+
+//[x] a.  public void add(string studentID, string firstName, string lastName, string emailAddress, int age, int daysInCourse1, int daysInCourse2, int daysInCourse3, DegreeProgram degreeprogram)  that sets the instance variables from part D1 and updates the roster.
 void Roster::Add(string id, string fName, string lName, string email, int age, int day1, int day2, int day3, DegreeProgram degree)
 {
 	Student* student = new Student(id, fName, lName, email, age, day1, day2, day3, degree);
@@ -76,6 +97,7 @@ void Roster::Add(string id, string fName, string lName, string email, int age, i
 	studentCount++;
 }
 
+//[x] b.  public void remove(string studentID)  that removes students from the roster by student ID. If the student ID does not exist, the function prints an error message indicating that the student was not found.
 void Roster::Remove(string id)
 {
 	bool isFound = false;
@@ -93,16 +115,19 @@ void Roster::Remove(string id)
 			}
 			// resize studentCount
 			studentCount--;
-			cout << "Student ID: " << id << " was successfully removed." << endl;
+			cout << "Student ID: " << id << " was successfully removed." << endl << endl;
 			isFound = true;
 			return;
 		}
 		i++;
 	}
-
-	cout << "Student ID: " << id << " was not found." << endl;
+	if (!isFound)
+	{
+		cout << "Student ID: " << id << " was not found." << endl << endl;
+	}
 }
 
+//[x] c. public void printAll() that prints a complete tab-separated list of student data in the provided format: A1 [tab] First Name: John [tab] Last Name: Smith [tab] Age: 20 [tab]daysInCourse: {35, 40, 55} Degree Program: Security. The printAll() function should loop through all the students in classRosterArray and call the print() function for each student.
 void Roster::PrintAll() const
 {
 	cout << "Printing All Students..." << endl;
@@ -110,38 +135,82 @@ void Roster::PrintAll() const
 	{
 		ClassRosterArray[i]->Print();
 	}
-	cout << "Print Complete" << endl;
+	cout << "Print Complete" << endl << endl;
 }
 
+//[x] d.  public void printAverageDaysInCourse(string studentID)  that correctly prints a student’s average number of days in the three courses. The student is identified by the studentID parameter.
 void Roster::PrintAverageDaysInCourse(string id) const
 {
+	bool isFound = false;
+	cout << "Beginning search for Student ID: " << id << endl;
+	int i = 0;
+	while (!isFound && i < studentCount)
+	{
+		if (ClassRosterArray[i]->GetStudentID() == id)
+		{
+			float totalDays = 0.00;
+			vector<int> studentNumDays = ClassRosterArray[i]->GetNumDaysToComplete();
+			for (int days : studentNumDays)
+			{
+				totalDays += days;
+			}
+			cout << "Average Days In Course: " << totalDays / studentNumDays.size() << endl << endl;
 
+			isFound = true;
+			return;
+		}
+		i++;
+	}
+	
+	if (!isFound)
+	{
+		cout << "Student ID: " << id << " was not found." << endl << endl;
+	}
 }
 
+//[x] e.  public void printInvalidEmails() that verifies student email addresses and displays all invalid email addresses to the user.
+//Note: A valid email should include an at sign ('@') and period ('.') and should not include a space (' ').
 void Roster::PrintInvalidEmails() const
 {
-
+	bool isFound = false;
+	cout << "Beginning search for invalid emails: " << endl;
+	const regex emailRegex("(\\w+)(\\.|_)?(\\w*)@(\\w+)(\\.(\\w+))+");	// regex for valid email pattern
+	int i = 0;
+	while (i < studentCount)
+	{
+		if (!regex_match(ClassRosterArray[i]->GetEmail(), emailRegex))
+		{
+			cout << "Found invalid email address for Student ID: " << ClassRosterArray[i]->GetStudentID() << '\t' << ClassRosterArray[i]->GetEmail() << endl;
+			isFound = true;
+		}
+		i++;
+	}
+	if (!isFound)
+	{
+		cout << "No invalid email addresses found." << endl << endl;
+	}
+	cout << endl;
 }
 
+//[] f.  public void printByDegreeProgram(DegreeProgram degreeProgram) that prints out student information for a degree program specified by an enumerated type.
 void Roster::PrintByDegreeProgram(DegreeProgram degree) const
 {
+	bool isFound = false;
+	int i = 0;
+	cout << "Beginning search for degree program: " << endl;
+	while (i < studentCount)
+	{
+		if (ClassRosterArray[i]->GetDegreeProgram() == degree)
+		{
+			ClassRosterArray[i]->Print();
+			isFound = true;
+		}
+		i++;
+	}
+	cout << "End of search." << endl << endl;
 
+	if (!isFound)
+	{
+		cout << "Found no students in this degree program." << endl << endl;
+	}
 }
-
-//[] E.  Create a Roster class (roster.cpp) by doing the following:
-//    [x] 1.  Create an array of pointers, classRosterArray, to hold the data provided in the “studentData Table.”
-//    
-//    [x] 2.  Create a student object for each student in the data table and populate classRosterArray.
-//        [x] a.  Parse each set of data identified in the “studentData Table.”
-//        [x] b.  Add each student object to classRosterArray.
-//    
-//    [] 3.  Define the following functions
-//        [x] a.  public void add(string studentID, string firstName, string lastName, string emailAddress, int age, int daysInCourse1, int daysInCourse2, int daysInCourse3, DegreeProgram degreeprogram)  that sets the instance                   variables from part D1 and updates the roster.
-//        [x] b.  public void remove(string studentID)  that removes students from the roster by student ID. If the student ID does not exist, the function prints an error message indicating that the student was not found.
-//        [x] c. public void printAll() that prints a complete tab-separated list of student data in the provided format: A1 [tab] First Name: John [tab] Last Name: Smith [tab] Age: 20 [tab]daysInCourse: {35, 40, 55} Degree                      Program: Security. The printAll() function should loop through all the students in classRosterArray and call the print() function for each student.
-//        [] d.  public void printAverageDaysInCourse(string studentID)  that correctly prints a student’s average number of days in the three courses. The student is identified by the studentID parameter.
-//        [] e.  public void printInvalidEmails() that verifies student email addresses and displays all invalid email addresses to the user.
-//        
-//        Note: A valid email should include an at sign ('@') and period ('.') and should not include a space (' ').
-//        
-//        [] f.  public void printByDegreeProgram(DegreeProgram degreeProgram) that prints out student information for a degree program specified by an enumerated type.

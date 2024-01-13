@@ -12,6 +12,7 @@ Student::Student()
 	degreeProgram = DegreeProgram::SOFTWARE;
 }
 
+//[x] d.  constructor using all of the input parameters provided in the table
 Student::Student(string id, string fName, string lName, string email, unsigned int age, unsigned int day1, unsigned int day2, unsigned int day3, DegreeProgram degree)
 {
 	studentID = id;
@@ -33,6 +34,7 @@ Student::~Student()
 
 }
 
+//[x] a.  an accessor (i.e., getter) for each instance variable from part D1
 string Student::GetStudentID() const
 {
 	return studentID;
@@ -68,6 +70,7 @@ DegreeProgram Student::GetDegreeProgram() const
 	return degreeProgram;
 }
 
+//[x] b.  a mutator (i.e., setter) for each instance variable from part D1
 void Student::SetStudentID(string id)
 {
 	studentID = id;
@@ -103,6 +106,7 @@ void Student::SetDegreeProgram(DegreeProgram degree)
 {
 	degreeProgram = degree;
 }
+//[x] e.  print() to print specific student data
 void Student::Print() const
 {
 	cout << studentID << '\t';
@@ -132,11 +136,3 @@ void Student::Print() const
 	}
 	cout << endl;
 }
-
-//[x] D.  For the Student class, do the following:
-//    [x] 2.  Create each of the following functions in the Student class:
-//        [x] a.  an accessor (i.e., getter) for each instance variable from part D1
-//        [x] b.  a mutator (i.e., setter) for each instance variable from part D1
-//        [x] c.  All external access and changes to any instance variables of the Student class must be done using accessor and mutator functions.
-//        [x] d.  constructor using all of the input parameters provided in the table
-//        [x] e.  print() to print specific student data

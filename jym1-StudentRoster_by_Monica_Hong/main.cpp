@@ -13,13 +13,15 @@ using namespace std;
 #include "degree.h";
 #include "roster.h";
 
+//[x] F.  Demonstrate the program’s required functionality by adding a main() function in main.cpp, which will contain the required function calls to achieve required results.
 int main()
 {
-//    [] 1.  Print out to the screen, via your application, the course title, the programming language used, your WGU student ID, and your name.
+//[x] 1.  Print out to the screen, via your application, the course title, the programming language used, your WGU student ID, and your name.
     cout << "Course Title  : C867 Scripting & Programming - Applications" << endl;
     cout << "Language Used : C++" << endl;
-    cout << "WGU Student ID: blah blah" << endl;
-    cout << "Student Name  : Monica Hong" << endl;
+    cout << "WGU Student ID: 011580462" << endl;
+    cout << "Student Name  : Monica Hong" << endl << endl;
+
 //[x] A.  Modify the “studentData Table” to include your personal information as the last item.
     const string studentData[] =
     {
@@ -27,35 +29,30 @@ int main()
         "A2,Suzan,Erickson,Erickson_1990@gmailcom,19,50,30,40,NETWORK",
         "A3,Jack,Napoli,The_lawyer99yahoo.com,19,20,40,33,SOFTWARE",
         "A4,Erin,Black,Erin.black@comcast.net,22,50,58,40,SECURITY",
-        "A5,Monica,Hong,mhong21@wgu.edu,38,5,18,14,SOFTWARE"
+        "A5,Monica,Hong,mhong21@wgu.edu,38,5,18,14,SOFTWARE"    // Hi, this is me. Nice to meet you.
     };
 
-//[] F.  Demonstrate the program’s required functionality by adding a main() function in main.cpp, which will contain the required function calls to achieve the following results:
-
-//    [x] 2.  Create an instance of the Roster class called classRoster.
+//[x] 2.  Create an instance of the Roster class called classRoster.
     Roster classRoster(studentData);
-//    [x] 3.  Add each student to classRoster.
-//    [] 4.  Convert the following pseudo code to complete the rest of the  main() function:
-//        classRoster.printAll();
+//[x] 4.  Convert the following pseudo code to complete the rest of the  main() function:
+//  classRoster.printAll();
+//  classRoster.printInvalidEmails();
     classRoster.PrintAll();
-//        classRoster.printInvalidEmails();
-//        
-//        //loop through classRosterArray and for each element:
-//        classRoster.printAverageDaysInCourse(/*current_object's student id*/);
-//        
-//        Note: For the current_object's student id, use an accessor (i.e., getter) for the classRosterArray to access the student id.
-//        
-//        classRoster.printByDegreeProgram(SOFTWARE);
-//        
-//        classRoster.remove("A3");
+    classRoster.PrintInvalidEmails();
+//  loop through classRosterArray and for each element:
+    for (int i = 0; i < classRoster.GetStudentCount(); i++)
+    {
+//      classRoster.printAverageDaysInCourse(/*current_object's student id*/);
+        classRoster.PrintAverageDaysInCourse(classRoster.GetClassRosterArray()[i]->GetStudentID());
+    }
+//  classRoster.printByDegreeProgram(SOFTWARE);
+    classRoster.PrintByDegreeProgram(DegreeProgram::SOFTWARE);
+//  classRoster.remove("A3");
     classRoster.Remove("A3");
-//        classRoster.printAll();
+//  classRoster.printAll();
     classRoster.PrintAll();
-//        classRoster.remove("A3");
+//  classRoster.remove("A3");
     classRoster.Remove("A3");
-//        //expected: the above line should print a message saying such a student with this ID was not found.
-//        
-//    [x] 5.  Implement the destructor to release the memory that was allocated dynamically in Roster.
-
+//  expected: the above line should print a message saying such a student with this ID was not found.
     return 0;
 }
